@@ -110,6 +110,7 @@ public class VideoFileManager {
 		assert(videoData != null);
 		
 		Path target = getVideoPath(v);
+		System.out.println("Video will be saved to "+target);
 		Files.copy(videoData, target, StandardCopyOption.REPLACE_EXISTING);
 	}
 	
