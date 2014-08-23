@@ -13,7 +13,7 @@ import org.springframework.stereotype.Repository;
  *
  */
 @Repository
-public interface VideoRepository extends CrudRepository<Video, Long>{
+public interface VideoRepository extends CrudRepository<Video,Long>{
 
 	// Find all videos with a matching title (e.g., Video.name)
 	public Collection<Video> findByName(String title);

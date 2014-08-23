@@ -1,5 +1,14 @@
 package org.magnum.mobilecloud.video.repository;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 import com.google.common.base.Objects;
 
 /**
@@ -14,26 +23,32 @@ import com.google.common.base.Objects;
  * to make sure that they are serialized into JSON in a way that
  * matches what is expected by the auto-grader.
  * 
- * @author mitchell
+ * @author Ranjith
  */
+@Entity
 public class Video {
-
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
 
 	private String name;
 	private String url;
 	private long duration;
 	private long likes;
+	@ElementCollection
+	private List<String> likedBy = new ArrayList<String>();
 	
 	public Video() {
 	}
 
-	public Video(String name, String url, long duration, long likes) {
+	public Video(String name, String url, long duration, long likes,List<String> likedBy) {
 		super();
 		this.name = name;
 		this.url = url;
 		this.duration = duration;
 		this.likes = likes;
+		this.likedBy = likedBy;
 	}
 
 	public String getName() {
@@ -105,4 +120,33 @@ public class Video {
 		}
 	}
 
+	public List<String> getLikedBy() {
+		return likedBy;
+	}
+
+	public void setLikedBy(List<String> likedBy) {
+		this.likedBy = likedBy;
+	}
+	
+	//method to like the video
+	
+	public boolean likeVideo(String userName){
+		if(!likedBy.contains(userName)){
+			likedBy.add(userName);
+			likes+=1;
+			return true;
+		}else
+			return false;
+	}
+	
+	//method to unlike the video
+	
+	public boolean unLikeVideo(String userName){
+		if(likedBy.contains(userName)){
+			likedBy.remove(userName);
+			likes-=1;
+			return true;
+		}else
+			return false;
+	}
 }

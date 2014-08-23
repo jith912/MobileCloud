@@ -1,5 +1,7 @@
 package org.magnum.mobilecloud.video;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 import org.magnum.mobilecloud.video.repository.Video;
@@ -34,7 +36,9 @@ public class TestData {
 		String title = "Video-"+id;
 		String url = "http://coursera.org/some/video-"+id;
 		long duration = 60 * (int)Math.rint(Math.random() * 60) * 1000; // random time up to 1hr
-		return new Video(title, url, duration, 0);
+		List<String> likedBy = new ArrayList<String>();
+		likedBy.add("Steve");
+		return new Video(title, url, duration, 0,likedBy);
 	}
 	
 	/**
