@@ -3,7 +3,9 @@ buildscript {
 		springBootVersion = '1.0.2.RELEASE'
 	}
     repositories {
-        maven { url "http://repo.spring.io/libs-snapshot" }
+        maven { 
+        url "http://repo.spring.io/libs-snapshot" 
+        }
         mavenLocal()
     }
     dependencies {
@@ -32,6 +34,7 @@ repositories {
     mavenCentral()
     maven { url "http://repo.spring.io/libs-snapshot" }
     maven { url "http://maven.springframework.org/milestone" }
+    maven { url "http://nexus.paypal.com/nexus/content/repositories/snapshots/"}
 }
 
 dependencies {
@@ -48,7 +51,7 @@ dependencies {
     compile("com.google.guava:guava:17.0")
     compile("com.squareup.retrofit:retrofit:1.6.0")
     compile("commons-io:commons-io:2.4")
-    
+    compile("com.paypal.cslt:CSLT-Ranjith:1.0.4-SNAPSHOT")
     testCompile("junit:junit")
 }
 

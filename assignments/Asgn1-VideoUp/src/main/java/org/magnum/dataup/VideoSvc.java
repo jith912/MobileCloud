@@ -2,7 +2,9 @@ package org.magnum.dataup;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
 
 import javax.servlet.http.HttpServletRequest;
@@ -34,6 +36,8 @@ public class VideoSvc {
 
 	List<Video> vList = new ArrayList<Video>();
 	private static final AtomicLong currentId = new AtomicLong(0L);
+//get videos
+	
 	@RequestMapping(value="/video",method =RequestMethod.GET)
 	public @ResponseBody List<Video> getVideos(){
 	return vList;

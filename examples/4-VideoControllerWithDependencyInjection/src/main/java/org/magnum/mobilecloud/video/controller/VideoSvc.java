@@ -65,6 +65,8 @@ public class VideoSvc implements VideoSvcApi {
 	@RequestMapping(value=VideoSvcApi.VIDEO_SVC_PATH, method=RequestMethod.POST)
 	public @ResponseBody boolean addVideo(@RequestBody Video v){
 		return videos.addVideo(v);
+		
+		
 	}
 	
 	// Receives GET requests to /video and returns the current
@@ -73,6 +75,9 @@ public class VideoSvc implements VideoSvcApi {
 	// annotation.
 	@RequestMapping(value=VideoSvcApi.VIDEO_SVC_PATH, method=RequestMethod.GET)
 	public @ResponseBody Collection<Video> getVideoList(){
+		//Add some way to call the test case evaluation here
+		
+		
 		return videos.getVideos();
 	}
 	
